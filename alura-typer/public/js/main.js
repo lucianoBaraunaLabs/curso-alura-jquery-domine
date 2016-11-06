@@ -4,6 +4,7 @@ var numPalavras = frase.split(" ").length;
 var tamanhoFrase = $('#tamanho-frase');
 tamanhoFrase.text(numPalavras);
 
+// Restultado das palavras digitadas realtime
 var campo = $('.campo-digitacao');
 campo.on('input', function () {
   var conteudo = campo.val();
@@ -13,4 +14,10 @@ campo.on('input', function () {
 
   var qtdCaracteres = conteudo.length;
   $("#contador-caracteres").text(qtdCaracteres);
+});
+
+// Cronometro de tempo restante
+var tempoRestante = $('#tempo-digitacao').text();
+campo.on('focus',function () {
+
 });
