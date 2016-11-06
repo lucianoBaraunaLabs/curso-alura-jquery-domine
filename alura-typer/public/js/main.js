@@ -18,6 +18,13 @@ campo.on('input', function () {
 
 // Cronometro de tempo restante
 var tempoRestante = $('#tempo-digitacao').text();
-campo.on('focus',function () {
-
+campo.one('focus',function () { // Funcao one só escuta o evento uma única vez
+  var cronometroID = setInterval(function () {
+                        tempoRestante--; // subtrai do tempo
+                        $('#tempo-digitacao').text(tempoRestante);
+                        if (tempoRestante < 1) {
+                            campo.attr("disabled", true);
+                            clearInterval(cronometroID);
+                        }
+                    }, 1000);
 });
