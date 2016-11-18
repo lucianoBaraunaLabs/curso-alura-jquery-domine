@@ -5,8 +5,8 @@ $(function(){
   atualizaTamanhoFrase();
   inicializaContadores();
   inicializaCronometro();
+  inicializaMarcadores();
   $('#botao-reiniciar').click(reiniciaJogo);
-
 });
 
 // Contando as palavras e colocando na tela
@@ -48,6 +48,25 @@ function inicializaCronometro() {
   });
 };
 
+// Checando se esta digitando certo
+function inicializaMarcadores() {
+  var frase = $('.frase').text();
+  campo.on('input', function () {
+    var digitado = campo.val();
+    var comparavel = frase.substr(0, digitado.length)
+    console.log('Digitado.: ' + digitado);
+    console.log('Comparavel.: ' + comparavel);
+    console.log(digitado);
+    if (digitado == comparavel) {
+      campo.addClass('borda-verde');
+      campo.removeClass('borda-vermelha');
+    } else {
+      campo.addClass('borda-vermelha');
+      campo.removeClass('borda-verde');
+    }
+  });
+}
+
 // Resetar cronometro
 function reiniciaJogo() {
   campo.attr('disabled', false);
@@ -57,6 +76,8 @@ function reiniciaJogo() {
   $('#tempo-digitacao').text(tempoInicial);
   inicializaCronometro();
   campo.toggleClass("campo-desativado");
+  campo.removeClass('borda-verde');
+  campo.removeClass('borda-vermelha');
 }
 
 // Finaliza jogo
