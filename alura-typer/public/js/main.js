@@ -42,6 +42,7 @@ function inicializaCronometro() {
         campo.attr("disabled", true);
         clearInterval(cronometroID);
         campo.toggleClass("campo-desativado");
+        inserirPlacar();
         finalizaJogo();
       }
     }, 1000);
@@ -54,9 +55,6 @@ function inicializaMarcadores() {
   campo.on('input', function () {
     var digitado = campo.val();
     var comparavel = frase.substr(0, digitado.length)
-    console.log('Digitado.: ' + digitado);
-    console.log('Comparavel.: ' + comparavel);
-    console.log(digitado);
     if (digitado == comparavel) {
       campo.addClass('borda-verde');
       campo.removeClass('borda-vermelha');
@@ -83,4 +81,13 @@ function reiniciaJogo() {
 // Finaliza jogo
 function finalizaJogo(){
     $('#botao-reiniciar').attr('disabled', false);
+}
+
+// Inseri placar
+function inserirPlacar() {
+  var corpoTabela = $('.placar').find('tbody');
+  var usuario =  "Seu nome";
+  var numPalavras = $('#contador-palavras').text();
+  console.log(corpoTabela + usuario + numPalavras);
+  console.log("Linha inserir placar");
 }
