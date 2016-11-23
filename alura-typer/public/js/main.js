@@ -39,10 +39,7 @@ function inicializaCronometro() {
       tempoRestante--; // subtrai do tempo
       $('#tempo-digitacao').text(tempoRestante);
       if (tempoRestante < 1) {
-        campo.attr("disabled", true);
         clearInterval(cronometroID);
-        campo.toggleClass("campo-desativado");
-        inserirPlacar();
         finalizaJogo();
       }
     }, 1000);
@@ -65,6 +62,13 @@ function inicializaMarcadores() {
   });
 }
 
+// Finaliza jogo
+function finalizaJogo(){
+  campo.attr("disabled", true);
+  campo.toggleClass("campo-desativado");
+  inserirPlacar();
+}
+
 // Resetar cronometro
 function reiniciaJogo() {
   campo.attr('disabled', false);
@@ -76,18 +80,4 @@ function reiniciaJogo() {
   campo.toggleClass("campo-desativado");
   campo.removeClass('borda-verde');
   campo.removeClass('borda-vermelha');
-}
-
-// Finaliza jogo
-function finalizaJogo(){
-    $('#botao-reiniciar').attr('disabled', false);
-}
-
-// Inseri placar
-function inserirPlacar() {
-  var corpoTabela = $('.placar').find('tbody');
-  var usuario =  "Seu nome";
-  var numPalavras = $('#contador-palavras').text();
-  console.log(corpoTabela + usuario + numPalavras);
-  console.log("Linha inserir placar");
 }
