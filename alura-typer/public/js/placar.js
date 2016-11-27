@@ -44,7 +44,7 @@ function novaLinha(usuario, palavras) {
 function removeLinha(event) {
   event.preventDefault();
   var linha = $(this).closest('tr');
-  linha.fadeOut(1000, function(){
+  linha.fadeOut(500, function(){
     linha.remove();
   });
 }
