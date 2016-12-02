@@ -30,3 +30,12 @@ body {
 }
 
 .placar { display: none; }
+
+#spinner{
+    display: none;
+}
+
+#erro{
+    color: red;
+    display: none;
+}
