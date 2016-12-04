@@ -39,3 +39,7 @@ body {
     color: red;
     display: none;
 }
+
+#frase-id{
+    width: 40px;
+}
