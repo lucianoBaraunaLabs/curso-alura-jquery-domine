@@ -32,6 +32,7 @@ function buscaFrase(){
   console.log("Buscando id frase: " + fraseId);
   $.get('http://localhost:3000/frases', dados, trocaFrase)
    .fail(function(){
+     $('#erro').toggle();
      setTimeout(function(){
        $('#erro').toggle();
      },2000)
