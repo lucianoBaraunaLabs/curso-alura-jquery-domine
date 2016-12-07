@@ -27,20 +27,36 @@ function atualizaTamanhoFrase() {
 function inicializaContadores() {
   campo.on('input', function () {
     var conteudo = campo.val();
+
     var qtdPalavras = conteudo.split(/\S+/).length - 1; // Busca qualquer caracter, exceto espaço vazio
     $("#contador-palavras").text(qtdPalavras);
-    console.log("digito");
-
+    
     var qtdCaracteres = conteudo.length;
     $("#contador-caracteres").text(qtdCaracteres);
   });
 };
 
+// Checando se esta digitando certo
+function inicializaMarcadores() {
+  campo.on('input', function () {
+    var frase = $('.frase').text();
+    var digitado = campo.val();
+    var comparavel = frase.substr(0, digitado.length);
+
+    if (digitado == comparavel) {
+      campo.addClass('borda-verde');
+      campo.removeClass('borda-vermelha');
+    } else {
+      campo.addClass('borda-vermelha');
+      campo.removeClass('borda-verde');
+    }
+  });
+}
+
 // Cronometro de tempo restante
 function inicializaCronometro() {
   campo.one('focus',function () { // Funcao one só escuta o evento uma única vez
     var tempoRestante = $('#tempo-digitacao').text();
-    $('#botao-reiniciar').attr('disabled', true);
     var cronometroID = setInterval(function () {
       tempoRestante--; // subtrai do tempo
       $('#tempo-digitacao').text(tempoRestante);
@@ -52,21 +68,7 @@ function inicializaCronometro() {
   });
 };
 
-// Checando se esta digitando certo
-function inicializaMarcadores() {
-  campo.on('input', function () {
-    var frase = $('.frase').text();
-    var digitado = campo.val();
-    var comparavel = frase.substr(0, digitado.length)
-    if (digitado == comparavel) {
-      campo.addClass('borda-verde');
-      campo.removeClass('borda-vermelha');
-    } else {
-      campo.addClass('borda-vermelha');
-      campo.removeClass('borda-verde');
-    }
-  });
-}
+
 
 // Finaliza jogo
 function finalizaJogo(){
