@@ -7,6 +7,7 @@ $(function(){
   inicializaCronometro();
   inicializaMarcadores();
   $('#botao-reiniciar').click(reiniciaJogo);
+  atualizaPlacar();
 });
 
 // atualiza tempoInicial
@@ -20,6 +21,7 @@ function atualizaTamanhoFrase() {
   var frase = $('.frase').text();
   var numPalavras = frase.split(" ").length;
   var tamanhoFrase = $('#tamanho-frase');
+
   tamanhoFrase.text(numPalavras);
 };
 
@@ -74,7 +76,7 @@ function inicializaCronometro() {
 function finalizaJogo(){
   campo.attr("disabled", true);
   campo.toggleClass("campo-desativado");
-  inserirPlacar();
+  inserePlacar();
 }
 
 // Resetar cronometro
