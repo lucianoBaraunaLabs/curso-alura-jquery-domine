@@ -47,3 +47,9 @@ body {
 #botao-sync{
   float: right;
 }
+
+.select-usuarios {
+    display: block;
+}
+
+#usuarios { display: block; }
