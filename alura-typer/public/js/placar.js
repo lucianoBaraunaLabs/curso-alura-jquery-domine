@@ -5,7 +5,7 @@ $('#botao-sync').click(sincronizaPlacar);
 // Inseri placar
 function inserePlacar() {
   var corpoTabela = $('.placar').find('tbody');
-  var usuario =  "Luciano";
+  var usuario =  $('#usuarios').val();
   var numPalavras = $('#contador-palavras').text();
 
   var linha = novaLinha(usuario, numPalavras);
