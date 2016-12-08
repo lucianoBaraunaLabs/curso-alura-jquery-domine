@@ -95,14 +95,3 @@ function atualizaPlacar(){
     });
   })
 }
-
-
-var nomes = ['Arlindo', 'Baiano', 'Carlos'];
-  $.each(nomes, function() {
-     var item = $('<li>').text(this);
-     $('.teste').append(item);
-  });
-
-
-
-//
