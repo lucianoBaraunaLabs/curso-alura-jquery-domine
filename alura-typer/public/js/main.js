@@ -12,9 +12,11 @@ $(function(){
   $('#usuarios').selectize({
     create: true,
     sortField: 'text'
-  });
+  });  
 
-  $('.tooltip').tooltipster();
+  $('.tooltip').tooltipster({
+    trigger: "custom"
+  });
   
 });
 
@@ -99,3 +101,4 @@ function reiniciaJogo() {
   campo.removeClass('borda-verde');
   campo.removeClass('borda-vermelha');
 }
+
